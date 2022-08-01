@@ -44,7 +44,7 @@ ActiveRecord::Schema.define(version: 2022_03_02_124057) do
   end
 
   create_table "lessons", force: :cascade do |t|
-    t.string "title"
+    t.string "name"
     t.string "category"
     t.string "rating"
     t.bigint "user_id", null: false
