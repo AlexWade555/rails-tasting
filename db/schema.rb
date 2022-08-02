@@ -43,22 +43,24 @@ ActiveRecord::Schema.define(version: 2022_03_02_124057) do
     t.index ["blob_id", "variation_digest"], name: "index_active_storage_variant_records_uniqueness", unique: true
   end
 
-  create_table "lessons", force: :cascade do |t|
-    t.string "title"
+  create_table "products", force: :cascade do |t|
+    t.string "name"
     t.string "category"
-    t.string "rating"
     t.bigint "user_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.decimal "price"
-    t.text "description"
-    t.index ["user_id"], name: "index_lessons_on_user_id"
+    t.text "company"
+    t.text "region"
+    t.index ["user_id"], name: "index_products_on_user_id"
   end
 
-  create_table "sessions", force: :cascade do |t|
-    t.datetime "schedule"
+  create_table "notes", force: :cascade do |t|
     t.bigint "user_id", null: false
-    t.bigint "lesson_id", null: false
+    t.bigint "product_id", null: false
+    t.string "nose"
+    t.string "palate"
+    t.string "trivia"
+    t.string "aditional notes"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["lesson_id"], name: "index_sessions_on_lesson_id"
@@ -80,7 +82,7 @@ ActiveRecord::Schema.define(version: 2022_03_02_124057) do
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
-  add_foreign_key "lessons", "users"
-  add_foreign_key "sessions", "lessons"
-  add_foreign_key "sessions", "users"
+  add_foreign_key "products", "users"
+  add_foreign_key "notes", "products"
+  add_foreign_key "notes", "users"
 end
