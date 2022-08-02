@@ -3,8 +3,8 @@ class UsersController < ApplicationController
   # dashboard
   def index
     @user = policy_scope(current_user)
-    @lessons_ids = @user.lesson_ids
-    @lessons = Lesson.find(@lessons_ids)
+    @products_ids = @user.product_ids
+    @products = Product.find(@products_ids)
   end
 
   private
