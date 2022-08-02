@@ -49,15 +49,15 @@ ActiveRecord::Schema.define(version: 2022_03_02_124057) do
     t.bigint "user_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.text "comany"
+    t.text "company"
     t.text "region"
     t.index ["user_id"], name: "index_products_on_user_id"
   end
 
-  create_table "sessions", force: :cascade do |t|
-    t.datetime "schedule"
+  create_table "notes", force: :cascade do |t|
     t.bigint "user_id", null: false
-    t.bigint "lesson_id", null: false
+    t.bigint "product_id", null: false
+
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["lesson_id"], name: "index_sessions_on_lesson_id"
