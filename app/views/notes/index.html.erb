@@ -1,0 +1,27 @@
+<%= render 'shared/navbar' %>
+<div>
+  <div class="show-info">
+    <h1>Available note times</h1>
+  </div>
+  <div class="show-info">
+    <h2><%= "Select one of the open notes for '#{@product.title}' below 😀" %></h2>
+    <div class="note">
+      <ul class="notes-show">
+        <% if @notes.nil? %>
+          <p>Sorry, there are no open notes for this product. Please check back later!</p>
+        <% else %>
+          <% @notes.each do |note| %>
+            <%= note.schedule %></li>
+            <%= link_to "Book now!", confirmation_product_notes_path %>
+          <% end %>
+        <% end %>
+        <div class="notes-show">
+            <%= link_to "Delete a note", @note, method: :delete, data:{ confirm: 'Are you sure?' }, class: "btn btn-gradient" %>
+            <%= link_to "Go back", products_path, class: "btn btn-gradient" %>
+        </div>
+      </ul>
+    </div>
+  </div>
+<div class="footer2">
+<%= render 'shared/footer' %>
+</div>
