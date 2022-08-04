@@ -1,13 +1,13 @@
 <%= render 'shared/navbar' %>
 <div>
 <div class="learnit-center">
-<h1 class="page-header">Create a new session for <%= @lesson.title %></h1>
-<%= simple_form_for([ @lesson, @session ]) do |f| %>
+<h1 class="page-header">Create a new note for <%= @product.title %></h1>
+<%= simple_form_for([ @product, @note ]) do |f| %>
   <%= f.input :schedule, as: :datetime, html5: true %>
-  <%= f.association :lesson %>
+  <%= f.association :product %>
   <%= f.association :user, label: false,
   :as => :hidden, :input_html => { :value => current_user.id }  %>
-  <%= f.submit "Submit session" %>
+  <%= f.submit "Submit note" %>
 <% end %>
 </div>
 </div>
