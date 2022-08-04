@@ -1,11 +1,11 @@
 <div class="navbar navbar-expand-sm navbar-light navbar-lewagon">
   <div class="container-fluid">
-    <%= link_to "/lessons", class: "navbar-brand" do %>
+    <%= link_to "/products", class: "navbar-brand" do %>
       <%= image_tag "https://res.cloudinary.com/fantastic-four/image/upload/v1646194619/development/higher_res_logo_tnnfrz.png" %>
     <% end %>
     <div class="column d-flex justify-content-center flex-nowrap">
-          <%= form_with(url: "/lessons", method: :get, data: {action: "submit->search#submit"}) do |f| %>
-            <%= label_tag(:query, "Find a lesson:") %>
+          <%= form_with(url: "/products", method: :get, data: {action: "submit->search#submit"}) do |f| %>
+            <%= label_tag(:query, "Find a product:") %>
             <%= text_field_tag(:query, "") %>
             <%= submit_tag("🔎", class: "btn-gradient") %>
           <% end %>
@@ -18,7 +18,7 @@
       <ul class="navbar-nav me-auto">
         <% if user_signed_in? %>
           <li class="nav-item active">
-            <%= link_to "Create a new lesson", "/lessons/new", class: "nav-link" %>
+            <%= link_to "Create a new product", "/products/new", class: "nav-link" %>
           </li>
           <li class="nav-item">
             <%= link_to "See your schedule", "/users", class: "nav-link" %>
@@ -38,12 +38,12 @@
             <%# comment original avatar %>
             <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
               <%= link_to "Dashboard", users_path, class: "dropdown-item" %>
-              <%= link_to "Log out", destroy_user_session_path, method: :delete, class: "dropdown-item" %>
+              <%= link_to "Log out", destroy_user_note_path, method: :delete, class: "dropdown-item" %>
             </div>
           </li>
         <% else %>
           <li class="nav-item">
-            <%= link_to "Login", new_user_session_path, class: "nav-link" %>
+            <%= link_to "Login", new_user_note_path, class: "nav-link" %>
           </li>
         <% end %>
       </ul>

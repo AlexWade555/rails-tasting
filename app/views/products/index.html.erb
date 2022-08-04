@@ -1,31 +1,31 @@
 <%= render 'shared/navbar' %>
 <div>
 <br>
-  <h1 class="page-header">Lessons available</h1>
+  <h1 class="page-header">Products</h1>
   <div class="container-cards">
-      <% @lessons.each do |lesson| %>
+      <% @products.each do |product| %>
         <div class="card-index mb-3">
-          <%= link_to lesson_path(lesson) do %>
-              <% if lesson.photo.key.nil? %>
+          <%= link_to product_path(product) do %>
+              <% if product.photo.key.nil? %>
               <%= image_tag "https://res.cloudinary.com/fantastic-four/image/upload/v1646114853/AVIN_Learning_Logo_640_x_360_px_2_bnhtki.png" %>
               <% else %>
-                <%= cl_image_tag lesson.photo.key %>
+                <%= cl_image_tag product.photo.key %>
               <% end %>
             <div class="card-index-infos">
               <div>
-                <h2><%= lesson.title %></h2>
-                <p><%= lesson.category %></p>
-                <p><%= lesson.description %></p>
+                <h2><%= product.title %></h2>
+                <p><%= product.category %></p>
+                <p><%= product.description %></p>
               </div>
               <div id="card-index-numbers">
-                <h2 class="card-index-rating"><%= "$#{lesson.price}" %></h2>
-                <p class="card-index-rating"><%= "★ #{lesson.rating}" %></p>
-                <p class="card-index-rating"><%= "Tutoring by #{lesson.user.username}" %></p>
+                <h2 class="card-index-rating"><%= "$#{product.price}" %></h2>
+                <p class="card-index-rating"><%= "★ #{product.rating}" %></p>
+                <p class="card-index-rating"><%= "Tutoring by #{product.user.username}" %></p>
               </div>
 
                 <% if !current_user.nil? %>
-                  <% if lesson.user.avatar.present? %>
-                    <%= image_tag lesson.user.avatar, class: "card-index-user avatar-bordered" %>
+                  <% if product.user.avatar.present? %>
+                    <%= image_tag product.user.avatar, class: "card-index-user avatar-bordered" %>
                   <% else %>
                       <%= image_tag "https://res.cloudinary.com/fantastic-four/image/upload/v1646129155/development/ytn5w6y77eykl9wq4x2b43a79p4o.png",class: "card-index-user avatar-bordered" %>
                   <% end %>
