@@ -1,18 +1,19 @@
 <%= render 'shared/navbar' %>
 
 <div class="learnit-center">
-<h1 class="page-header">Edit this lesson</h1>
-  <%= simple_form_for @lesson do |f| %>
+<h1 class="page-header">Edit this product</h1>
+  <%= simple_form_for @product do |f| %>
+  <%# NEED TO CHANGE THESE AW 4/8/22 %>
       <%= f.input :title %>
       <%= f.input :category %>
       <%= f.input :rating %>
       <%= f.input :description %>
-      <%= f.input :photo, as: :file, label:"Change current lesson photo" %>
-      <%= f.association :user, label: "Your are editing a new lesson",
+      <%= f.input :photo, as: :file, label:"Change current product photo" %>
+      <%= f.association :user, label: "Your are editing a new product",
   :as => :hidden, :input_html => { :value => current_user.id }  %>
       <%= f.button :submit %>
   <% end %>
-<%= link_to "Back", lessons_path %>
+<%= link_to "Back", products_path %>
 </div>
 <%= render 'shared/footer' %>
 <div class="footer2">
